@@ -1,25 +1,44 @@
 {
-    "parser": "@typescript-eslint/parser",
     "parserOptions": {
         "ecmaVersion": 2021,
+        "ecmaFeatures": {
+            "jsx": true
+        },
         "sourceType": "module"
     },
-    "plugins": [
-        "@typescript-eslint",
-        "react-hooks"
-    ],
+    "env": {
+        "browser": true,
+        "jest": true
+    },
+    "plugins": ["react", "@typescript-eslint", "react-hooks", "prettier"],
     "extends": [
         "plugin:react/recommended",
-        "plugin:@typescript-eslint/recommended"
+        "plugin:@typescript-eslint/recommended",
+        "plugin:@typescript-eslint/recommended",
+        "plugin:import/errors",
+        "plugin:import/warnings",
+        "plugin:import/typescript",
+        "plugin:prettier/recommended",
+        "airbnb",
+        "prettier"
     ],
+    "parser": "@typescript-eslint/parser",
     "rules": {
+        "no-use-before-define": [0],
+        "@typescript-eslint/no-use-before-define": [1],
+
+        "react/jsx-filename-extension": [
+            1,
+            {
+                "extensions": [".tsx", ".ts"]
+            }
+        ],
         "react-hooks/rules-of-hooks": "error",
         "react-hooks/exhaustive-deps": "warn",
         "react/prop-types": "off"
     },
     "settings": {
         "react": {
-            "pragma": "React",
             "version": "detect"
         }
     }
