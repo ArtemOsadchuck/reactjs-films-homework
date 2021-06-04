@@ -1,17 +1,12 @@
 import path from "path";
-import webpack from "webpack";
 import HtmlWebpackPlugin from "html-webpack-plugin";
 import ForkTsCheckerWebpackPlugin from "fork-ts-checker-webpack-plugin";
 import ESLintPlugin from "eslint-webpack-plugin";
 import { CleanWebpackPlugin } from "clean-webpack-plugin";
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
-const CopyPlugin = require('copy-webpack-plugin');
 
-const environment = process.env.NODE_ENV
-const isDev = environment === 'development'
-if (isDev) {
-    console.log(environment, '--- mode enable')
-}
+const environment = process.env.NODE_ENV;
+console.log(environment, '- mode enable');
 
 const config = ({ mode }) => ({
     mode: mode,
@@ -88,8 +83,6 @@ const config = ({ mode }) => ({
     },
     devtool: "inline-source-map",
     plugins: [
-        new CleanWebpackPlugin(),
-
         new HtmlWebpackPlugin({
             template: "src/index.html",
             filename: "index.[contenthash].html"

@@ -4,12 +4,13 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const ESLintPlugin = require('eslint-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 const environment = process.env.NODE_ENV;
 const isDev = environment === 'development';
 if (isDev) {
-    console.log(environment, 'dev mode enable');
-}
+    console.log(environment, '- mode enable');
+};
 
 module.exports = {
     mode: environment,
@@ -108,6 +109,7 @@ module.exports = {
         new MiniCssExtractPlugin({
             filename: 'css/[name].[contenthash].css',
         }),
+        new CleanWebpackPlugin(),
     ],
 
     devtool: 'inline-source-map',
