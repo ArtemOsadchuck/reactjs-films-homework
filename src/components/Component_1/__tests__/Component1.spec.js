@@ -7,7 +7,8 @@ describe('Component1 should:', () => {
         expect(Component1).toBeDefined();
     });
 
-    const testRenderComponent1 = create(<Component1 />);
+    const nameResult = 'Webpack Artem';
+    const testRenderComponent1 = create(<Component1 name={nameResult} />);
     const testInstance = testRenderComponent1.root;
     it('contains H1', () => {
         expect(testInstance.findByType('h1'));
