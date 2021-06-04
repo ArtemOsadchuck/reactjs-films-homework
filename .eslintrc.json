@@ -30,7 +30,7 @@
         "react/jsx-filename-extension": [
             1,
             {
-                "extensions": [".tsx", ".ts"]
+                "extensions": [".tsx", ".ts", "js", "jsx"]
             }
         ],
         "react-hooks/rules-of-hooks": "error",

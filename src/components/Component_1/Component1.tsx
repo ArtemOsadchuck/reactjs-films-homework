@@ -1,5 +1,5 @@
 import React from 'react';
-import style from './Component1.module.scss';
+import style from './Component1.scss';
 import myPhoto from './assets/IMG_6433.JPG';
 
 interface IComponent1 {
