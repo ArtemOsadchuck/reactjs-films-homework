@@ -2,11 +2,15 @@ import React from 'react';
 import style from './Component1.module.scss';
 import myPhoto from './assets/IMG_6433.JPG';
 
-const Component1: React.FC = () => (
+interface IComponent1 {
+    name: string;
+}
+
+const Component1: React.FC<IComponent1> = ({ name }) => (
     <>
         <div>
             <h1 className={style.text}>
-                Webpack Artem
+                {name}
                 <br />
                 {style.text}
                 <hr />

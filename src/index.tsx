@@ -4,7 +4,7 @@ import Component1 from './components/Component_1/index';
 
 ReactDOM.render(
     <React.StrictMode>
-        <Component1 />
+        <Component1 name="Webpack Artem" />
     </React.StrictMode>,
     document.getElementById('root')
 );
