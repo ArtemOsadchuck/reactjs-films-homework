@@ -1,3 +1,1 @@
-import Signature from './Signature.tsx';
-
-export default Signature;
+export { default } from './Signature.tsx';
