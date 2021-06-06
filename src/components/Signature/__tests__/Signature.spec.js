@@ -1,15 +1,15 @@
 import React from 'react';
 import { create } from 'react-test-renderer';
-import Component1 from '../Component1.tsx';
+import Signature from '../Signature.tsx';
 
-describe('Component1 should:', () => {
+describe('Signature should:', () => {
     it('be Defined', () => {
-        expect(Component1).toBeDefined();
+        expect(Signature).toBeDefined();
     });
 
     const nameResult = 'Webpack Artem';
-    const testRenderComponent1 = create(<Component1 name={nameResult} />);
-    const testInstance = testRenderComponent1.root;
+    const testRenderSignature = create(<Signature name={nameResult} />);
+    const testInstance = testRenderSignature.root;
     it('contains H1', () => {
         expect(testInstance.findByType('h1'));
     });
