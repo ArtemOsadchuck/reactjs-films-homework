@@ -9,8 +9,8 @@
         "stylelint:fix": "stylelint ./src/**/*.{css,scss,sass} --fix",
         "test": "cross-env NODE_ENV=test jest",
         "prepare": "husky install",
-        "build": "cross-env NODE_ENV=production webpack --config config/webpack/webpack.prod.config.ts",
-        "develop": "cross-env NODE_ENV=development webpack --config config/webpack/webpack.prod.config.ts",
+        "build": "cross-env NODE_ENV=production webpack --config config/webpack/webpack.assembly.config.ts",
+        "develop": "cross-env NODE_ENV=development webpack --config config/webpack/webpack.assembly.config.ts",
         "start": "cross-env NODE_ENV=development node ./config/webpack/server.js",
         "prod": "cross-env NODE_ENV=production node ./config/webpack/server.js"
     },

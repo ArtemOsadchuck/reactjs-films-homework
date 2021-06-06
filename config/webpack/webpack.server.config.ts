@@ -12,7 +12,7 @@ if (isDev) {
     console.log(environment, '- mode enable');
 };
 
-module.exports = {
+const config = () => ({
     mode: environment,
     entry: {
         devServer: isDev
@@ -76,17 +76,7 @@ module.exports = {
                     },
                 ],
             },
-            {
-                test: /\.(ogg|mp3|wav|mpe?g)$/i,
-                use: [
-                    {
-                        loader: 'file-loader',
-                        options: {
-                            name: 'assets/sounds/[name].[ext]',
-                        },
-                    },
-                ],
-            },
+
         ],
     },
 
@@ -118,4 +108,6 @@ module.exports = {
         // historyApiFallback: true,
         hot: true,
     },
-};
+});
+
+module.exports = config();

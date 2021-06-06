@@ -65,17 +65,7 @@ const config = ({ mode }) => ({
                     },
                 ],
             },
-            {
-                test: /\.(ogg|mp3|wav|mpe?g)$/i,
-                use: [
-                    {
-                        loader: 'file-loader',
-                        options: {
-                            name: 'assets/sounds/[name].[ext]',
-                        },
-                    },
-                ],
-            },
+
         ],
     },
     resolve: {
@@ -100,4 +90,4 @@ const config = ({ mode }) => ({
     ],
 });
 
-export default config;
+module.exports = config;
