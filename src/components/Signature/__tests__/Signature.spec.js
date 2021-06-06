@@ -3,13 +3,10 @@ import { create } from 'react-test-renderer';
 import Signature from '../Signature.tsx';
 
 describe('Signature should:', () => {
-    it('be Defined', () => {
-        expect(Signature).toBeDefined();
-    });
-
     const nameResult = 'Webpack Artem';
     const testRenderSignature = create(<Signature name={nameResult} />);
     const testInstance = testRenderSignature.root;
+
     it('contains H1', () => {
         expect(testInstance.findByType('h1'));
     });
