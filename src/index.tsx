@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Signature from './components/Signature/index.ts';
+import Signature from './components/Signature/index';
 
 ReactDOM.render(
     <React.StrictMode>

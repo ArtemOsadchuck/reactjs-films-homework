@@ -1,6 +1,6 @@
 import React from 'react';
 import { create } from 'react-test-renderer';
-import Signature from '../Signature.tsx';
+import Signature from '../Signature';
 
 describe('Signature should:', () => {
     const nameResult = 'Webpack Artem';

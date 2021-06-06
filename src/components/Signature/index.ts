@@ -1,1 +1,1 @@
-export { default } from './Signature.tsx';
+export { default } from './Signature';

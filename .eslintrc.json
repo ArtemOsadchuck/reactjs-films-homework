@@ -29,7 +29,7 @@
         "react/jsx-filename-extension": [
             1,
             {
-                "extensions": [".tsx", ".ts", "js", "jsx"]
+                "extensions": [".tsx", ".ts", ".js", ".jsx"]
             }
         ],
         "react-hooks/rules-of-hooks": "error",
@@ -39,6 +39,7 @@
     "settings": {
         "react": {
             "version": "detect"
-        }
+        },
+        "import/extensions": {"ts": "always", "tsx": "always"}
     }
 }
