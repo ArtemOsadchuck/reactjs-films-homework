@@ -8,7 +8,9 @@ const app = express();
 
 const webpackCompiler = webpack(webpackConfigDev);
 const environment = process.env.NODE_ENV;
-console.log(environment);
+const localHostPort = 3000;
+const heartbeatTiming = 2000;
+
 if (environment === 'production') {
     console.log(`${environment} server test`)
 };
@@ -22,9 +24,9 @@ app.use(
 app.use(webpackHotMiddleware(webpackCompiler, {
   log: false,
   path: '/__webpack_hmr',
-  heartbeat: 2000
+  heartbeat: heartbeatTiming
 }));
 
-app.listen(3000, function () {
+app.listen(localHostPort, function () {
   console.log('Example app listening on port 3000!\n');
 });
