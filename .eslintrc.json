@@ -12,13 +12,13 @@
     },
     "plugins": ["react", "@typescript-eslint", "react-hooks", "prettier"],
     "extends": [
+        "airbnb",
         "plugin:react/recommended",
         "plugin:@typescript-eslint/recommended",
         "plugin:import/errors",
         "plugin:import/warnings",
         "plugin:import/typescript",
         "plugin:prettier/recommended",
-        "airbnb",
         "prettier"
     ],
     "parser": "@typescript-eslint/parser",
@@ -34,12 +34,21 @@
         ],
         "react-hooks/rules-of-hooks": "error",
         "react-hooks/exhaustive-deps": "warn",
-        "react/prop-types": "off"
+        "react/prop-types": "off",
+        "import/extensions": [
+            "error",
+            "ignorePackages",
+            {
+                "js": "never",
+                "jsx": "never",
+                "ts": "never",
+                "tsx": "never"
+            }
+        ]
     },
     "settings": {
         "react": {
             "version": "detect"
-        },
-        "import/extensions": {"ts": "always", "tsx": "always"}
+        }
     }
 }
