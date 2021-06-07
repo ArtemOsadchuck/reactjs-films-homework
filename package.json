@@ -12,7 +12,7 @@
         "build": "cross-env NODE_ENV=production webpack --config config/webpack/webpack.assembly.config.ts",
         "develop": "cross-env NODE_ENV=development webpack --config config/webpack/webpack.assembly.config.ts",
         "start": "cross-env NODE_ENV=development node ./config/webpack/server.js",
-        "prod": "cross-env NODE_ENV=production node ./config/webpack/server.js"
+        "prod": "cross-env NODE_ENV=production webpack --config config/webpack/webpack.assembly.config.ts && cross-env NODE_ENV=production node ./config/webpack/server.js"
     },
     "jest": {
         "moduleNameMapper": {

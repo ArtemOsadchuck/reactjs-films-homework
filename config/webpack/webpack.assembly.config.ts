@@ -75,7 +75,7 @@ const config = ({ mode }) => ({
     plugins: [
         new HtmlWebpackPlugin({
             template: "src/index.html",
-            filename: "index.[contenthash].html"
+            filename: "index.html"
         }),
         new ForkTsCheckerWebpackPlugin({
             async: false,
