@@ -1,32 +1,9 @@
-const path = require('path');
-const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const ESLintPlugin = require('eslint-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
-const environment = process.env.NODE_ENV;
-const isDev = environment === 'development';
-if (isDev) {
-    console.log(environment, '- mode enable');
-};
-
-const config = () => ({
-    mode: environment,
-    entry: {
-        devServer: isDev
-            ? ['webpack-hot-middleware/client', './src/index.tsx']
-            : './src/index.tsx',
-    },
-    output: {
-        publicPath: '/',
-        path: path.resolve(__dirname, 'build'),
-        filename: '[name].build.js',
-        hotUpdateChunkFilename: '.hot/hot-update.js',
-        hotUpdateMainFilename: '.hot/hot-update.json',
-    },
-
+const configCommon = {
     module: {
         rules: [
             {
@@ -42,17 +19,6 @@ const config = () => ({
                         ],
                     },
                 },
-            },
-            {
-                test: /\.s[ac]ss$/i,
-                use: [
-                    isDev ? 'style-loader' : MiniCssExtractPlugin.loader,
-                    {
-                        loader: 'css-loader',
-                        options: { modules: true },
-                    },
-                    'sass-loader',
-                ],
             },
             {
                 test: /\.(png|jpe?g|gif)$/i,
@@ -76,38 +42,24 @@ const config = () => ({
                     },
                 ],
             },
-
         ],
     },
-
     resolve: {
-        extensions: ['.tsx', '.ts', '.js'],
+        extensions: ['.tsx', '.ts', '.js', 'jsx'],
     },
-
     plugins: [
         new HtmlWebpackPlugin({
             template: 'src/index.html',
-            title: 'life-server',
-        }),
-        new webpack.HotModuleReplacementPlugin(),
-        new ForkTsCheckerWebpackPlugin({
-            async: false,
+            title: 'home-work-react',
         }),
         new ESLintPlugin({
             extensions: ['js', 'jsx', 'ts', 'tsx'],
         }),
-        new MiniCssExtractPlugin({
-            filename: 'css/[name].[contenthash].css',
+        new ForkTsCheckerWebpackPlugin({
+            async: false,
         }),
         new CleanWebpackPlugin(),
     ],
+};
 
-    devtool: 'inline-source-map',
-    devServer: {
-        contentBase: path.join(__dirname, '../../build'),
-        // historyApiFallback: true,
-        hot: true,
-    },
-});
-
-module.exports = config();
+module.exports = configCommon;

@@ -1,20 +1,20 @@
 const express = require('express');
 const webpack = require('webpack');
-const path = require('path');
 const webpackDevMiddleware = require('webpack-dev-middleware');
-const webpackConfigDev = require('./webpack.server.config.ts');
 const webpackHotMiddleware = require('webpack-hot-middleware');
+const path = require('path');
+const webpackConfigDev = require('./webpack.config');
+const environment = require('./environment');
 
 const app = express();
 
 const webpackCompiler = webpack(webpackConfigDev);
-const environment = process.env.NODE_ENV;
 const localHostPort = 3000;
 const heartbeatTiming = 2000;
+const { __PROD__ } = environment;
 
 const serverMode = () => {
-    if (environment === 'production') {
-        console.log(`${environment} server test`);
+    if (__PROD__) {
         app.use(express.static(path.resolve(__dirname, '../../build')));
     } else {
         app.use(
