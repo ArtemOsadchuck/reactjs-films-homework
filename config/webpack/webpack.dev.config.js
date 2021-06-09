@@ -1,15 +1,13 @@
 const path = require('path');
-const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
+const webpack = require('webpack');
+const ESLintPlugin = require('eslint-webpack-plugin');
 
 const configDev = {
     mode: 'development',
-    entry: './src/index.tsx',
     output: {
         publicPath: '/',
         path: path.resolve(__dirname, '../../build'),
         filename: '[hash].build.js',
-        hotUpdateChunkFilename: '.hot/hot-update.js',
-        hotUpdateMainFilename: '.hot/hot-update.json',
     },
     module: {
         rules: [
@@ -26,10 +24,16 @@ const configDev = {
             },
         ],
     },
+    devServer: {
+        contentBase: path.join(__dirname, '../../build'),
+        historyApiFallback: true,
+        hot: true,
+    },
     devtool: 'inline-source-map',
     plugins: [
-        new ForkTsCheckerWebpackPlugin({
-            async: false,
+        new webpack.HotModuleReplacementPlugin(),
+        new ESLintPlugin({
+            extensions: ['js', 'jsx', 'ts', 'tsx'],
         }),
     ],
 };

@@ -1,9 +1,9 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
-const ESLintPlugin = require('eslint-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 const configCommon = {
+    entry: './src/index.tsx',
     module: {
         rules: [
             {
@@ -51,9 +51,6 @@ const configCommon = {
         new HtmlWebpackPlugin({
             template: 'src/index.html',
             title: 'home-work-react',
-        }),
-        new ESLintPlugin({
-            extensions: ['js', 'jsx', 'ts', 'tsx'],
         }),
         new ForkTsCheckerWebpackPlugin({
             async: false,
